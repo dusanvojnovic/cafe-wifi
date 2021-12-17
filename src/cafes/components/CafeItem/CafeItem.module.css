@@ -1,0 +1,37 @@
+.cafeItem {
+  display: flex;
+  justify-content: center;
+  margin: 3rem;
+}
+
+.content {
+  background-color: cadetblue;
+  width: 35%;
+  border-radius: 8px;
+}
+
+.cafeInfo {
+  padding: 1rem 1rem 0;
+  text-align: center;
+}
+
+.cafeInfo h2, h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.icons {
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 0 1rem;
+}
+
+.buttons {
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid #ccc;
+}
+
+.buttons button {
+  margin: 0.5rem;
+}
