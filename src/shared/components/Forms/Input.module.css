@@ -1,0 +1,21 @@
+/* input[type='text'],
+input[type='email'],
+input[type='password'], */
+.textInput {
+  width: 350px;
+  height: 2rem;
+  font-size: 1.2rem;
+  background-color: #e2e8f0;
+  border: 2px solid #abb1b8;
+  color: #232527;
+  border-radius: 7px;
+}
+
+label {
+  margin: 1rem;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+}

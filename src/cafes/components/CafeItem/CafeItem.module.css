@@ -15,7 +15,8 @@
   text-align: center;
 }
 
-.cafeInfo h2, h3 {
+.cafeInfo h2,
+h3 {
   margin: 0 0 0.5rem 0;
 }
 
@@ -34,4 +35,9 @@
 
 .buttons button {
   margin: 0.5rem;
+}
+
+.mapContainer {
+  height: 15rem;
+  width: 100%;
 }

@@ -1,11 +1,27 @@
+import { useState } from 'react';
+
 import { BiCoffee } from 'react-icons/bi';
 import { BiPlug } from 'react-icons/bi';
 import { BiWifi } from 'react-icons/bi';
 import { BiChair } from 'react-icons/bi';
 
+import Modal from '../../../shared/components/Modal/Modal';
+import Map from '../../../shared/components/Map/Map';
+import Button from '../../../shared/components/Button/Button';
+
 import classes from './CafeItem.module.css';
 
 const CafeItem = (props) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModalHandler = () => {
+    setShowModal(true);
+  };
+
+  const closeModalHandler = () => {
+    setShowModal(false);
+  };
+
   return (
     <li className={classes.cafeItem}>
       <div className={classes.content}>
@@ -32,10 +48,17 @@ const CafeItem = (props) => {
             {props.wifiStrength}/5
           </span>
         </div>
+        {showModal && (
+          <Modal show onCancel={closeModalHandler}>
+            <div className={classes.mapContainer}>
+              <Map center={props.coordinates} zoom={16} />
+            </div>
+          </Modal>
+        )}
         <div className={classes.buttons}>
-          <button>edit</button>
-          <button>delete</button>
-          <button>view on map</button>
+          <Button>edit</Button>
+          <Button>delete</Button>
+          <Button onClick={openModalHandler}>view on map</Button>
         </div>
       </div>
     </li>
