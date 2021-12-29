@@ -1,23 +1,64 @@
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
+import { AuthContext } from '../../context/auth-context';
+import { useHttpClient } from '../../hooks/http-hook';
+import Spinner from '../Spinner/Spinner';
+import Modal from '../Modal/Modal';
 import Input from './Input';
 import Button from '../Button/Button';
 import classes from './Form.module.css';
 
 const SignupForm = () => {
-  const submitFormHandler = (values) => {
-    console.log(values);
+  const authCtx = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+
+  const submitFormHandler = async (values) => {
+    try {
+      const responseData = await sendRequest(
+        'http://localhost:5000/api/users/signup',
+        'POST',
+        JSON.stringify({
+          email: values.email,
+          username: values.name,
+          password: values.password,
+          confirmedPassword: values.confirmedPassword,
+        }),
+        {
+          'Content-Type': 'application/json',
+        }
+      );
+
+      authCtx.login(responseData.userId, responseData.token);
+      navigate('/');
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <>
+      {error && (
+        <Modal
+          show
+          header="An error has occurred"
+          onClick={clearError}
+          footer={<Button onClick={clearError}>Ok</Button>}
+        >
+          {error}
+        </Modal>
+      )}
+      {isLoading && <Spinner />}
       <Formik
         initialValues={{
           name: '',
           email: '',
           password: '',
-          confirmPassword: '',
+          confirmedPassword: '',
         }}
         onSubmit={submitFormHandler}
         validationSchema={Yup.object({
@@ -28,7 +69,7 @@ const SignupForm = () => {
           password: Yup.string()
             .min(6, 'Password must be at least 6 characters long')
             .required('Password is required'),
-          confirmPassword: Yup.string()
+          confirmedPassword: Yup.string()
             .oneOf(
               [Yup.ref('password'), null],
               'Passwords must match, please try again'
@@ -59,11 +100,11 @@ const SignupForm = () => {
             />
             <Input
               label="Confirm Password"
-              name="confirmPassword"
+              name="confirmedPassword"
               type="password"
               placeholder="Confirm Password"
             />
-            <Button type="submit" className={classes.btn} disabled={!isValid}>
+            <Button type="submit" disabled={!isValid}>
               SignUp
             </Button>
           </Form>

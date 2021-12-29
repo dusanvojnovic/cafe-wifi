@@ -4,18 +4,14 @@ import classes from './Button.module.css';
 const Button = (props) => {
   if (props.to) {
     return (
-      <Link
-        to={props.to}
-        exact={props.exact}
-        className={props.className || classes.button}
-      >
+      <Link to={props.to} exact={props.exact} className={classes.button}>
         {props.children}
       </Link>
     );
   }
   return (
     <button
-      className={`${classes.button} ${props.className}`}
+      className={props.className || classes.button}
       onClick={props.onClick}
       disabled={props.disabled}
       type={props.type}

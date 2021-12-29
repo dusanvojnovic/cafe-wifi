@@ -1,10 +1,10 @@
 import { useRef, useEffect } from 'react';
-import mapboxgl from 'mapbox-gl';
+// import mapboxgl from 'mapbox-gl';
 
 import classes from './Map.module.css';
 
-const API_KEY =
-  'pk.eyJ1IjoiZHVzYW52b2pub3ZpYyIsImEiOiJja3hidGlxa2gxMWQyMnFrdDNzZzRzcmNjIn0.ftthdp7yQAUeKAIqHaJhmA';
+// const API_KEY =
+//   'pk.eyJ1IjoiZHVzYW52b2pub3ZpYyIsImEiOiJja3hidGlxa2gxMWQyMnFrdDNzZzRzcmNjIn0.ftthdp7yQAUeKAIqHaJhmA';
 
 // const Map = (props) => {
 //   const { center, zoom } = props;

@@ -12,22 +12,30 @@
   z-index: 100;
   position: fixed;
   top: 22vh;
-  left: 30%;
-  width: 40%;
-  height: 60%;
+  left: 35%;
+  width: 30%;
+  height: 30%;
   background: white;
   border-radius: 8px;
 }
 
 .modalHeader {
-  padding: 1rem 0.5rem;
+  padding: 0.5rem;
   background: #00546e;
   color: white;
+  text-align: center;
 }
 
-.modalContent,
-.modalFooter {
+.modalContent {
   padding: 1rem 0.5rem;
+  text-align: center;
+}
+.modalFooter {
+  text-align: center;
+}
+
+.modalFooter Button {
+  margin: 1rem;
 }
 
 /* @media (min-width: 768px) {

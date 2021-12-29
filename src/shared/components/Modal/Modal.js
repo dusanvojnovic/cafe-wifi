@@ -16,7 +16,6 @@ const ModalOverlay = (props) => {
       <header className={classes.modalHeader}>
         <h2>{props.header}</h2>
       </header>
-
       <div className={classes.modalContent}>{props.children}</div>
       <footer className={classes.modalFooter}>{props.footer}</footer>
     </div>
@@ -28,7 +27,7 @@ const ModalOverlay = (props) => {
 const Modal = (props) => {
   return (
     <>
-      {<Backdrop onClick={props.onCancel} />}
+      {<Backdrop onClick={props.onClick} />}
       <CSSTransition
         in={props.show}
         mountOnEnter
