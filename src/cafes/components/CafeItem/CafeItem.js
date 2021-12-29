@@ -6,10 +6,10 @@ import { BiPlug } from 'react-icons/bi';
 import { BiWifi } from 'react-icons/bi';
 import { BiChair } from 'react-icons/bi';
 import { BiStar } from 'react-icons/bi';
+import { Rating } from 'react-simple-star-rating';
 
 import Modal from '../../../shared/components/Modal/Modal';
 import Map from '../../../shared/components/Map/Map';
-import BasicRating from '../BasicRating/BasicRating';
 import Spinner from '../../../shared/components/Spinner/Spinner';
 import Button from '../../../shared/components/Button/Button';
 import { useHttpClient } from '../../../shared/hooks/http-hook';
@@ -21,6 +21,7 @@ const CafeItem = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const authCtx = useContext(AuthContext);
   const navigate = useNavigate();
+  const [rating, setRating] = useState(0);
 
   const [showModal, setShowModal] = useState(false);
   const [showMap, setShowMap] = useState(false);
@@ -48,6 +49,28 @@ const CafeItem = (props) => {
 
   const closeRatingModal = () => {
     setRatingModal(false);
+  };
+
+  const handleRating = (rate) => {
+    setRating(rate / 20);
+  };
+
+  const sendRatingHandler = async () => {
+    console.log(rating);
+    try {
+      await sendRequest(
+        `http://localhost:5000/api/cafes/rating/${props.id}`,
+        'POST',
+        JSON.stringify({
+          overallRating: rating,
+        }),
+        {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${authCtx.token}`,
+        }
+      );
+      closeRatingModal();
+    } catch (err) {}
   };
 
   const confirmDeleteHandler = async () => {
@@ -92,7 +115,7 @@ const CafeItem = (props) => {
             </span>
             <span>
               <BiStar /> <br /> Overall Rating <br />
-              3.6/5
+              {props.overallRating}/5
             </span>
           </div>
         </IconContext.Provider>
@@ -134,12 +157,17 @@ const CafeItem = (props) => {
             footer={
               <>
                 <Button onClick={closeRatingModal}>cancel</Button>
-                <Button>rate</Button>
+                <Button
+                  onClick={sendRatingHandler}
+                  disabled={rating ? false : true}
+                >
+                  rate
+                </Button>
               </>
             }
           >
-            <div className={classes.ratingBox}>
-              <BasicRating />
+            <div>
+              <Rating onClick={handleRating} ratingValue={rating / 20} />
             </div>
           </Modal>
         )}

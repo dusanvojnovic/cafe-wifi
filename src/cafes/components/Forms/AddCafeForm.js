@@ -39,6 +39,15 @@ const wifiStrengthOptions = [
   { value: '5', label: '📶📶📶📶📶' },
 ];
 
+const overallRatingOptions = [
+  { value: '', label: 'Select Rating' },
+  { value: 1, label: '⭐' },
+  { value: 2, label: '⭐⭐' },
+  { value: 3, label: '⭐⭐⭐' },
+  { value: 4, label: '⭐⭐⭐⭐' },
+  { value: 5, label: '⭐⭐⭐⭐⭐' },
+];
+
 const AddCafeForm = () => {
   const authCtx = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -57,6 +66,7 @@ const AddCafeForm = () => {
           coffeeRating: values.coffeeRating,
           socketAvailability: values.socketAvailability,
           wifiStrength: values.wifiStrength,
+          overallRating: values.overallRating,
         }),
         {
           'Content-Type': 'application/json',
@@ -92,6 +102,7 @@ const AddCafeForm = () => {
           socketAvailability: '',
           numOfSeats: '',
           wifiStrength: '',
+          overallRating: [''],
         }}
         onSubmit={submitFormHandler}
         validationSchema={Yup.object({
@@ -104,11 +115,12 @@ const AddCafeForm = () => {
           ),
           numOfSeats: Yup.string().required('Enter number of seats'),
           wifiStrength: Yup.string().required('Please rate wifi strength'),
+          overallRating: Yup.number().required('Enter overall rating'),
         })}
         validateOnMount
       >
         {({ isValid }) => (
-          <Form className={classes.form}>
+          <Form className={classes.form} style={{ marginTop: '7rem' }}>
             <Input label="Name" name="name" type="text" placeholder="Name" />
             <Input
               label="Address"
@@ -123,6 +135,7 @@ const AddCafeForm = () => {
               type="text"
               placeholder="Number of seats"
             />
+
             <Select
               label="Coffee Rating"
               options={coffeeRatingOptions}
@@ -137,6 +150,11 @@ const AddCafeForm = () => {
               label="Wifi Strength"
               options={wifiStrengthOptions}
               name="wifiStrength"
+            />
+            <Select
+              label="Overall Rating"
+              options={overallRatingOptions}
+              name="overallRating[0]"
             />
             <Button type="submit" disabled={!isValid}>
               Submit

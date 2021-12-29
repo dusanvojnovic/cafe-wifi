@@ -2,6 +2,10 @@ import CafeItem from '../CafeItem/CafeItem';
 
 import classes from './CafesList.module.css';
 
+const add = (accumulator, a) => {
+  return accumulator + a;
+};
+
 const CafesList = (props) => {
   return (
     <ul className={classes.list}>
@@ -17,6 +21,12 @@ const CafesList = (props) => {
           wifiStrength={cafe.wifiStrength}
           socketAvailability={cafe.socketAvailability}
           coffeeRating={cafe.coffeeRating}
+          overallRating={
+            Math.round(
+              (cafe.overallRating.reduce(add, 0) / cafe.overallRating.length) *
+                10
+            ) / 10
+          }
           onDelete={props.onDeleteCafe}
         />
       ))}

@@ -53,10 +53,6 @@ const EditCafeForm = () => {
           `http://localhost:5000/api/cafes/${cafeId}`
         );
         setLoadedCafe(responseData.cafe);
-        // values.numOfSeats = responseData.cafe.numOfSeats;
-        // values.coffeeRating = responseData.cafe.coffeeRating;
-        // values.socketAvailability = responseData.cafe.socketAvailability;
-        // values.wifiStrength = responseData.cafe.wifiStrength;
       } catch (err) {}
     };
     fetchCafe();
@@ -72,6 +68,7 @@ const EditCafeForm = () => {
           coffeeRating: values.coffeeRating,
           socketAvailability: values.socketAvailability,
           wifiStrength: values.wifiStrength,
+          overallRating: values.overallRating,
         }),
         {
           'Content-Type': 'application/json',
@@ -105,6 +102,7 @@ const EditCafeForm = () => {
             socketAvailability: loadedCafe.socketAvailability,
             numOfSeats: loadedCafe.numOfSeats,
             wifiStrength: loadedCafe.wifiStrength,
+            overallRating: loadedCafe.overallRating,
           }}
           onSubmit={submitFormHandler}
           validationSchema={Yup.object({
