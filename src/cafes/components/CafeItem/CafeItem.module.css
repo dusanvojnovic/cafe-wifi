@@ -2,12 +2,15 @@
   display: flex;
   justify-content: center;
   margin: 3rem;
+  width: 100%;
+  /* height: 100%; */
 }
 
 .content {
   background-color: cadetblue;
   width: 100%;
-  border-radius: 8px;
+  height: 26rem;
+  border-radius: 1rem;
 }
 
 .cafeInfo {
@@ -17,19 +20,22 @@
 
 .cafeInfo h2,
 h3 {
-  margin: 0 0 0.5rem 0;
+  margin: 0.5 0 0.5rem 0;
 }
 
 .icons {
   text-align: center;
   display: flex;
+  font-size: 1.2rem;
   justify-content: space-evenly;
-  margin: 5rem 0 1rem;
+  margin: 5rem 0 3rem;
 }
 
 .buttons {
   padding: 1rem;
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  justify-content: space-evenly;
   border-top: 1px solid #ccc;
 }
 

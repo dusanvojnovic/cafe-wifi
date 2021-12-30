@@ -27,11 +27,12 @@
 }
 
 .modalContent {
-  padding: 1rem 0.5rem;
+  padding: 1rem 0.5rem ;
   text-align: center;
 }
 .modalFooter {
   text-align: center;
+  padding: 2rem;
 }
 
 .modalFooter Button {

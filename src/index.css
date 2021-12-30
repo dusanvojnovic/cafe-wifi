@@ -5,9 +5,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body:before{
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: url('./shared/pics/3.jfif');
+  background-size: cover;
+  opacity: 0.8;
+  height: 100%;
+  width: 100%;
 }
+
+body:after{
+  position: relative;
+}
+
