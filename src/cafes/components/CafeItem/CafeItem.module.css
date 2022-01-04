@@ -1,42 +1,51 @@
 .cafeItem {
   display: flex;
   justify-content: center;
-  margin: 3rem;
+  margin: 2rem 0;
   width: 100%;
   /* height: 100%; */
 }
 
 .content {
-  background-color: cadetblue;
+  background-color: #005dff;
   width: 100%;
   height: 26rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
 }
 
 .cafeInfo {
-  padding: 1rem 1rem 0;
-  text-align: center;
+  padding: 0rem 1rem 0;
+  text-align: left;
 }
 
-.cafeInfo h2,
-h3 {
+.cafeInfo h1 {
+  color: #fe8df2;
+}
+
+.cafeInfo h3 {
   margin: 0.5 0 0.5rem 0;
+  font-weight: normal;
+  color: white;
+  font-size: 1.1rem;
 }
 
 .icons {
   text-align: center;
   display: flex;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   justify-content: space-evenly;
   margin: 5rem 0 3rem;
+  color: white;
+}
+
+.star {
+  color: transparent;
+  border: 1px solid white;
 }
 
 .buttons {
   padding: 1rem;
-  /* text-align: center; */
   display: flex;
-  justify-content: space-evenly;
-  border-top: 1px solid #ccc;
 }
 
 .buttons button {

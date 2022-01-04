@@ -9,5 +9,12 @@ export default function MyComponent() {
     setRating(rate / 20);
   };
 
-  return <Rating onClick={handleRating} ratingValue={rating / 20} />;
+  return (
+    <Rating
+      emptyColor="transparent"
+      fillColor="#fff"
+      onClick={handleRating}
+      ratingValue={rating / 20}
+    />
+  );
 }

@@ -60,30 +60,30 @@ const LoginForm = () => {
         onSubmit={submitFormHandler}
         validationSchema={Yup.object({
           email: Yup.string()
-            .email('Please enter valid email address')
-            .required('Email is required'),
+            .email('please enter valid email address')
+            .required('email is required'),
           password: Yup.string()
-            .min(6, 'Password must be at least 6 characters long')
-            .required('Password is required'),
+            .min(6, 'password must be at least 6 characters long')
+            .required('password is required'),
         })}
         validateOnMount
       >
         {({ isValid }) => (
           <Form className={classes.form}>
             <Input
-              label="Email"
+              label="email"
               name="email"
               type="email"
-              placeholder="Email"
+              // placeholder="Email"
             />
             <Input
-              label="Password"
+              label="password"
               name="password"
               type="password"
-              placeholder="Password"
+              // placeholder="Password"
             />
             <Button type="submit" disabled={!isValid}>
-              Log In
+              submit
             </Button>
           </Form>
         )}

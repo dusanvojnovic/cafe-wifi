@@ -10,10 +10,10 @@ import Modal from '../../../shared/components/Modal/Modal';
 import { useHttpClient } from '../../../shared/hooks/http-hook';
 import { AuthContext } from '../../../shared/context/auth-context';
 import Button from '../../../shared/components/Button/Button';
-import classes from '../../../shared/components/Forms/Form.module.css';
+import classes from './CafeForm.module.css';
 
 const coffeeRatingOptions = [
-  { value: '', label: 'Select Rating' },
+  { value: '', label: '' },
   { value: '1', label: '☕' },
   { value: '2', label: '☕☕' },
   { value: '3', label: '☕☕☕' },
@@ -22,7 +22,7 @@ const coffeeRatingOptions = [
 ];
 
 const socketAvailabilityOptions = [
-  { value: '', label: 'Select Rating' },
+  { value: '', label: '' },
   { value: '1', label: '🔌' },
   { value: '2', label: '🔌🔌' },
   { value: '3', label: '🔌🔌🔌' },
@@ -31,7 +31,7 @@ const socketAvailabilityOptions = [
 ];
 
 const wifiStrengthOptions = [
-  { value: '', label: 'Select Rating' },
+  { value: '', label: '' },
   { value: '1', label: '📶' },
   { value: '2', label: '📶📶' },
   { value: '3', label: '📶📶📶' },
@@ -40,7 +40,7 @@ const wifiStrengthOptions = [
 ];
 
 const overallRatingOptions = [
-  { value: '', label: 'Select Rating' },
+  { value: '', label: '' },
   { value: 1, label: '⭐' },
   { value: 2, label: '⭐⭐' },
   { value: 3, label: '⭐⭐⭐' },
@@ -106,58 +106,47 @@ const AddCafeForm = () => {
         }}
         onSubmit={submitFormHandler}
         validationSchema={Yup.object({
-          name: Yup.string().required('Name is required'),
-          address: Yup.string().required('Address is required'),
-          city: Yup.string().required('City name is required'),
-          coffeeRating: Yup.string().required('Please rate coffee'),
+          name: Yup.string().required('name is required'),
+          address: Yup.string().required('address is required'),
+          city: Yup.string().required('city name is required'),
+          coffeeRating: Yup.string().required('please rate coffee'),
           socketAvailability: Yup.string().required(
-            'Please rate socket avability'
+            'please rate socket avability'
           ),
-          numOfSeats: Yup.string().required('Enter number of seats'),
-          wifiStrength: Yup.string().required('Please rate wifi strength'),
-          overallRating: Yup.number().required('Enter overall rating'),
+          numOfSeats: Yup.string().required('enter number of seats'),
+          wifiStrength: Yup.string().required('please rate wifi strength'),
+          overallRating: Yup.number().required('enter overall rating'),
         })}
         validateOnMount
       >
         {({ isValid }) => (
-          <Form className={classes.form} style={{ marginTop: '7rem' }}>
-            <Input label="Name" name="name" type="text" placeholder="Name" />
-            <Input
-              label="Address"
-              name="address"
-              type="text"
-              placeholder="Address"
-            />
-            <Input label="City" name="city" type="text" placeholder="City" />
-            <Input
-              label="Number of seats"
-              name="numOfSeats"
-              type="text"
-              placeholder="Number of seats"
-            />
-
+          <Form className={classes.form} style={{ paddingTop: '0' }}>
+            <Input label="name" name="name" type="text" />
+            <Input label="address" name="address" type="text" />
+            <Input label="city" name="city" type="text" />
+            <Input label="number of seats" name="numOfSeats" type="text" />
             <Select
-              label="Coffee Rating"
+              label="coffee rating"
               options={coffeeRatingOptions}
               name="coffeeRating"
             />
             <Select
-              label="Socket Availability"
+              label="socket availability"
               options={socketAvailabilityOptions}
               name="socketAvailability"
             />
             <Select
-              label="Wifi Strength"
+              label="wifi strength"
               options={wifiStrengthOptions}
               name="wifiStrength"
             />
             <Select
-              label="Overall Rating"
+              label="overall rating"
               options={overallRatingOptions}
               name="overallRating[0]"
             />
             <Button type="submit" disabled={!isValid}>
-              Submit
+              submit
             </Button>
           </Form>
         )}

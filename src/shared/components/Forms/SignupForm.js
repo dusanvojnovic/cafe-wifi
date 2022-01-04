@@ -62,50 +62,34 @@ const SignupForm = () => {
         }}
         onSubmit={submitFormHandler}
         validationSchema={Yup.object({
-          name: Yup.string().required('Name is required'),
+          name: Yup.string().required('name is required'),
           email: Yup.string()
-            .email('Please enter valid email address')
-            .required('Email is required'),
+            .email('please enter valid email address')
+            .required('email is required'),
           password: Yup.string()
-            .min(6, 'Password must be at least 6 characters long')
-            .required('Password is required'),
+            .min(6, 'password must be at least 6 characters long')
+            .required('password is required'),
           confirmedPassword: Yup.string()
             .oneOf(
               [Yup.ref('password'), null],
-              'Passwords must match, please try again'
+              'passwords must match, please try again'
             )
-            .required('Confirm password is required'),
+            .required('confirm password is required'),
         })}
         validateOnMount
       >
         {({ isValid }) => (
           <Form className={classes.form}>
+            <Input label="username" name="name" type="text" />
+            <Input label="email" name="email" type="email" />
+            <Input label="password" name="password" type="password" />
             <Input
-              label="Username"
-              name="name"
-              type="text"
-              placeholder="Username"
-            />
-            <Input
-              label="Email"
-              name="email"
-              type="email"
-              placeholder="Email"
-            />
-            <Input
-              label="Password"
-              name="password"
-              type="password"
-              placeholder="Password"
-            />
-            <Input
-              label="Confirm Password"
+              label="confirm password"
               name="confirmedPassword"
               type="password"
-              placeholder="Confirm Password"
             />
             <Button type="submit" disabled={!isValid}>
-              SignUp
+              submit
             </Button>
           </Form>
         )}

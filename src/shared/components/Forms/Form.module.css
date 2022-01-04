@@ -1,8 +1,16 @@
 form {
-  margin-top: 10rem;
+  width: 22%;
+  height: 77%;
+  margin-left: 18rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  position: relative;
-  background-color: green
+  align-items: flex-start;
+  position: absolute;
+  background-color: #005dff;
+  padding-top: 13.5rem;
+}
+
+.form Button {
+  margin-top: 5rem;
+  margin-left: 0;
 }

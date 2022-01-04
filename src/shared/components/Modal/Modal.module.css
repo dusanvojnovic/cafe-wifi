@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   z-index: 10;
 }
 
@@ -12,31 +12,24 @@
   z-index: 100;
   position: fixed;
   top: 22vh;
-  left: 35%;
-  width: 30%;
-  height: 30%;
-  background: white;
+  left: 17%;
+  width: 84%;
+  height: 20%;
   border-radius: 8px;
+  color: white;
+  background-color: #005dff;
 }
 
 .modalHeader {
-  padding: 0.5rem;
-  background: #00546e;
-  color: white;
-  text-align: center;
+  padding: 0.3rem 0 0 1rem;
+  background-color: #005dff;
+  color: #fe8df2;
+  text-align: left;
 }
 
 .modalContent {
-  padding: 1rem 0.5rem ;
-  text-align: center;
-}
-.modalFooter {
-  text-align: center;
-  padding: 2rem;
-}
-
-.modalFooter Button {
-  margin: 1rem;
+  text-align: left;
+  padding: 0 0 0 1rem;
 }
 
 /* @media (min-width: 768px) {

@@ -1,5 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Formik, Form } from 'formik';
 import { BiSearch } from 'react-icons/bi';
 
@@ -14,10 +13,6 @@ import classes from './AllCafes.module.css';
 const AllCafes = () => {
   const [loadedCafes, setLoadedCafes] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
-  // const queryRef = useRef();
-  // const navigate = useNavigate();
-
-  // const city = useParams().name;
 
   const submitFormHandler = async (values, resetForm) => {
     try {
@@ -57,24 +52,20 @@ const AllCafes = () => {
         }}
         onSubmit={submitFormHandler}
       >
-        <Form>
-          <div className={classes.wrap}>
-            <div className={classes.search}>
-              <Input
-                type="text"
-                name="city"
-                className={classes.searchTerm}
-                placeholder="Search by city name.."
-              />
-              <Button
-                type="submit"
-                onClick={submitFormHandler}
-                className={classes.searchButton}
-              >
-                <BiSearch />
-              </Button>
-            </div>
-          </div>
+        <Form className={classes.citySearchForm} style={{ paddingTop: '0' }}>
+          <Input
+            style={{ width: '300px' }}
+            type="text"
+            name="city"
+            placeholder="search by city name.."
+          />
+          <Button
+            type="submit"
+            onClick={submitFormHandler}
+            className={classes.searchButton}
+          >
+            <BiSearch />
+          </Button>
         </Form>
       </Formik>
       {error && (

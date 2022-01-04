@@ -3,19 +3,37 @@ input[type='email'],
 input[type='password'], */
 .textInput {
   width: 350px;
-  height: 2rem;
-  font-size: 1.2rem;
-  background-color: #e2e8f0;
-  border: 2px solid #abb1b8;
-  color: #232527;
-  border-radius: 7px;
+  height: 1.5rem;
+  font-size: 1rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1.5px solid #fe8df2;
+  color: white;
+  text-align: left;
+  font-family: 'Poppins';
+}
+
+.textInput:focus {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1.5px solid #fe8df2;
+}
+
+.textInput::-webkit-input-placeholder {
+  color: #fe8df2;
+  text-shadow: 1px 1px grey;
 }
 
 label {
-  margin: 1rem;
-  font-weight: bold;
+  margin-top: 1.5rem;
+  font-weight: medium;
+  color: #fe8df2;
+  text-align: left;
 }
 
 .error {
-  color: red;
+  margin-top: 1rem;
+  color: white;
+  opacity: 0.5;
 }

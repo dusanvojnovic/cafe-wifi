@@ -6,12 +6,15 @@ const Input = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   return (
     <>
-      <label htmlFor={props.id || props.name}>{label}</label>
+      <label className={classes.label} htmlFor={props.id || props.name}>
+        {label}
+      </label>
       <input
         className={classes.textInput}
+        style={props.style}
         {...field}
         {...props}
-        autoComplete="new-password"
+        autoComplete="off"
       />
       {meta.touched && meta.error ? (
         <div className={classes.error}>{meta.error}</div>
