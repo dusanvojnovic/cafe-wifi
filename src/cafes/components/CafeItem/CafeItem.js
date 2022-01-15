@@ -57,7 +57,7 @@ const CafeItem = (props) => {
     console.log(rating);
     try {
       await sendRequest(
-        `http://localhost:5000/api/cafes/rating/${props.id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/cafes/rating/${props.id}`,
         'POST',
         JSON.stringify({
           overallRating: rating,
@@ -75,7 +75,7 @@ const CafeItem = (props) => {
     setShowModal(false);
     try {
       await sendRequest(
-        `http://localhost:5000/api/cafes/${props.id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/cafes/${props.id}`,
         'DELETE',
         null,
         { Authorization: `Bearer ${authCtx.token}` }

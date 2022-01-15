@@ -17,7 +17,7 @@ const AllCafes = () => {
   const submitFormHandler = async (values, resetForm) => {
     try {
       const responseData = await sendRequest(
-        `http://localhost:5000/api/cafes/city/${values.city}`
+        `${process.env.REACT_APP_BACKEND_URL}/cafes/city/${values.city}`
       );
       values.city = '';
       setLoadedCafes(responseData.cafes);
@@ -30,7 +30,7 @@ const AllCafes = () => {
     const fetchCafes = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/cafes`
+          `${process.env.REACT_APP_BACKEND_URL}/cafes`
         );
         setLoadedCafes(responseData.cafes);
       } catch (err) {}

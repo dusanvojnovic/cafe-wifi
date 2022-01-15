@@ -56,7 +56,7 @@ const AddCafeForm = () => {
   const submitFormHandler = async (values) => {
     try {
       await sendRequest(
-        `http://localhost:5000/api/cafes`,
+        `${process.env.REACT_APP_BACKEND_URL}/cafes`,
         'POST',
         JSON.stringify({
           name: values.name,

@@ -41,7 +41,7 @@ const Header = () => {
         </div>
       ) : (
         <>
-          <div className={classes.navbarBrand}>
+          <div className={classes.navbarList}>
             <Link to="/cafes" className={classes.link}>
               cafe list
             </Link>

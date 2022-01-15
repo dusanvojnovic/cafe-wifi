@@ -18,7 +18,7 @@ const UserPage = () => {
     const fetchCafes = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/cafes/user/${userId}`
+          `${process.env.REACT_APP_BACKEND_URL}/cafes/user/${userId}`
         );
         setLoadedCafes(responseData.cafes);
       } catch (err) {}

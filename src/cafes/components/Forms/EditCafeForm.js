@@ -50,7 +50,7 @@ const EditCafeForm = () => {
     const fetchCafe = async (values) => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/cafes/${cafeId}`
+          `${process.env.REACT_APP_BACKEND_URL}/cafes/${cafeId}`
         );
         setLoadedCafe(responseData.cafe);
       } catch (err) {}
@@ -61,7 +61,7 @@ const EditCafeForm = () => {
   const submitFormHandler = async (values) => {
     try {
       await sendRequest(
-        `http://localhost:5000/api/cafes/${cafeId}`,
+        `${process.env.REACT_APP_BACKEND_URL}/cafes/${cafeId}`,
         'PATCH',
         JSON.stringify({
           numOfSeats: values.numOfSeats,
