@@ -1,15 +1,35 @@
 .citySearchForm {
   height: 0;
-  width: 0;
+  /* width: 0; */
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-top: 10rem;
-  margin-left: 21rem;
+  margin-left: 20.5rem;
+}
+
+.searchButton {
+  background: #fe8df2;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.6rem;
+  color: white;
+  width: 4rem;
+  cursor: pointer;
 }
 
 .cafes {
   display: flex;
   justify-content: center;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .citySearchForm {
+    margin-left: 4.5rem;
+  }
+
+  .cafes {
+    padding-left: 0;
+  }
 }

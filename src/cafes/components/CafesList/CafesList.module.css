@@ -7,3 +7,10 @@
   flex-direction: column;
   align-items: center;
 }
+
+@media only screen and (max-width: 37.5em) {
+  .list {
+    margin: 4rem 0;
+    width: 100%;
+  }
+}

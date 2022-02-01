@@ -52,9 +52,9 @@ const AllCafes = () => {
         }}
         onSubmit={submitFormHandler}
       >
-        <Form className={classes.citySearchForm} style={{ paddingTop: '0' }}>
+        <Form className={classes.citySearchForm}>
           <Input
-            style={{ width: '300px' }}
+            style={{ width: '18rem' }}
             type="text"
             name="city"
             placeholder="search by city name.."

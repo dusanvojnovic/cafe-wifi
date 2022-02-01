@@ -103,7 +103,7 @@ const CafeItem = (props) => {
             {error}
           </Modal>
         )}
-        <IconContext.Provider value={{ color: '#fe8df2', size: '25px' }}>
+        <IconContext.Provider value={{ color: '#fe8df2', size: '22px' }}>
           <div className={classes.icons}>
             <span>
               <BiCoffee /> <br /> coffe rating <br />
@@ -130,7 +130,7 @@ const CafeItem = (props) => {
         {showMap && (
           <Modal
             show
-            style={{ width: '40%', height: '60%', left: '30%' }}
+            // style={{ width: '40%', height: '60%', left: '30%' }}
             header={`${props.name}, ${props.address}, ${props.city}`}
             onClick={closeMapHandler}
           >
@@ -144,6 +144,7 @@ const CafeItem = (props) => {
             show
             header="Are you sure?"
             onClick={closeModalHandler}
+            style={{ width: '84%', height: '23%', left: '17%' }}
             footer={
               <>
                 <Button onClick={closeModalHandler}>cancel</Button>
@@ -162,6 +163,7 @@ const CafeItem = (props) => {
             show
             header={`rate  ${props.name}!`}
             onClick={closeRatingModal}
+            style={{ width: '84%', height: '23%', left: '17%' }}
             footer={
               <>
                 <Button onClick={closeRatingModal}>cancel</Button>
@@ -174,10 +176,10 @@ const CafeItem = (props) => {
               </>
             }
           >
-            <div>
+            <div className={classes.ratingStar}>
               <Rating
-                emptyIcon={<BsStar size={30} />}
-                fullIcon={<BsStarFill size={30} />}
+                emptyIcon={<BsStar />}
+                fullIcon={<BsStarFill />}
                 fillColor="white"
                 onClick={handleRating}
                 ratingValue={rating / 20}

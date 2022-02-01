@@ -120,7 +120,7 @@ const AddCafeForm = () => {
         validateOnMount
       >
         {({ isValid }) => (
-          <Form className={classes.form} style={{ paddingTop: '0' }}>
+          <Form className={classes.form}>
             <Input label="name" name="name" type="text" />
             <Input label="address" name="address" type="text" />
             <Input label="city" name="city" type="text" />

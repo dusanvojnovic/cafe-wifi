@@ -113,7 +113,7 @@ const EditCafeForm = () => {
           validateOnMount
         >
           {({ isValid }) => (
-            <Form className={classes.form} style={{ paddingTop: '0' }}>
+            <Form className={classes.form}>
               <Input label="number of seats" name="numOfSeats" type="text" />
               <Select
                 label="coffee rating"
@@ -130,11 +130,7 @@ const EditCafeForm = () => {
                 options={wifiStrengthOptions}
                 name="wifiStrength"
               />
-              <Button
-                type="submit"
-                disabled={!isValid}
-                style={{ marginTop: '27rem' }}
-              >
+              <Button type="submit" disabled={!isValid}>
                 submit
               </Button>
             </Form>

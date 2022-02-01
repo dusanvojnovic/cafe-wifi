@@ -42,23 +42,25 @@ const Header = () => {
       ) : (
         <>
           <div className={classes.navbarList}>
-            <Link to="/cafes" className={classes.link}>
-              cafe list
-            </Link>
-          </div>
-          <div className={classes.auth}>
-            <ul>
-              <li>
-                <Link to="/signup" className={classes.link}>
-                  create account
-                </Link>
-              </li>
-              <li>
-                <Link to="/login" className={classes.link}>
-                  login
-                </Link>
-              </li>
-            </ul>
+            <div>
+              <Link to="/cafes" className={classes.link}>
+                cafe list
+              </Link>
+            </div>
+            <div className={classes.auth}>
+              <ul>
+                <li>
+                  <Link to="/signup" className={classes.link}>
+                    create account
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/login" className={classes.link}>
+                    login
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </>
       )}

@@ -2,7 +2,7 @@
 input[type='email'],
 input[type='password'], */
 .textInput {
-  width: 350px;
+  width: 21rem;
   height: 1.5rem;
   font-size: 1rem;
   background-color: transparent;
@@ -36,4 +36,10 @@ label {
   margin-top: 1rem;
   color: white;
   opacity: 0.5;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .textInput {
+    width: 18rem;
+  }
 }

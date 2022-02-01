@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  text-shadow: 1px 1px grey;
 }
 
 .link {
@@ -18,24 +19,53 @@
   font-weight: normal;
 }
 
-.navbarList,
 .navbarLinks {
+  margin-right: 0.5rem;
+}
+
+.navbarList {
   margin: 1.5rem 0.5rem 0 0;
-  text-decoration: none;
-  text-shadow: 1px 1px grey;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .navbarLinks .link {
-  text-shadow: 1px 1px grey;
   font-weight: bold;
 }
 
 .navbarLinks ul,
 .auth ul {
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
 }
 
-.auth {
-  margin-right: 0.5rem;
-  text-shadow: 1px 1px grey;
+@media only screen and (max-width: 37.5em) {
+  .header {
+    height: 4rem;
+    width: 100%;
+    flex-direction: row;
+    z-index: 300;
+  }
+
+  .navbarList {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 1rem;
+    justify-content: space-between;
+  }
+
+  .navbarLinks ul,
+  .auth ul {
+    flex-direction: row;
+  }
+
+  .auth li,
+  .navbarLinks li {
+    padding: 0.8rem;
+  }
 }

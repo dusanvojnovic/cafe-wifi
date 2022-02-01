@@ -1,10 +1,31 @@
 .form {
-  margin: 8.8rem 0 0 18rem;
+  background-color: #005dff;
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  justify-content: flex-start;
+  position: absolute;
+  margin: 9.5rem 0 0 18rem;
   padding-left: 1.2rem;
   width: 84%;
-  height: 85%;
+  height: 83.8%;
 }
 
 .form Button {
-  margin-left: 0;
+  margin: 2rem 0;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .form {
+    width: 60%;
+    /* height: 58vh; */
+    /* height: 8-%; */
+    margin: 12rem 12%;
+    padding: 3rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    /* justify-content: space-around; */
+    /* align-self: center; */
+    /* justify-content: center; */
+  }
 }

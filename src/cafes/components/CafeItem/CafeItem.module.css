@@ -1,7 +1,7 @@
 .cafeItem {
   display: flex;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 2rem;
   width: 100%;
   /* height: 100%; */
 }
@@ -23,7 +23,7 @@
 }
 
 .cafeInfo h3 {
-  margin: 0.5 0 0.5rem 0;
+  margin: 0.5 0;
   font-weight: normal;
   color: white;
   font-size: 1.1rem;
@@ -32,15 +32,16 @@
 .icons {
   text-align: center;
   display: flex;
-  font-size: 1.1rem;
+  flex-wrap: wrap;
+  font-size: 1rem;
   justify-content: space-evenly;
   margin: 5rem 0 3rem;
   color: white;
 }
 
-.star {
-  color: transparent;
-  border: 1px solid white;
+.ratingStar {
+  font-size: 1.5rem;
+  padding: 0;
 }
 
 .buttons {
@@ -55,4 +56,55 @@
 .mapContainer {
   height: 15rem;
   width: 100%;
+}
+
+@media only screen and (max-width: 31.25em) {
+  .cafeItem {
+    margin: 2rem 0;
+  }
+
+  .content {
+    width: 100%;
+    height: 36rem;
+  }
+
+  .cafeInfo {
+    padding: 0rem 1rem 0;
+    text-align: left;
+  }
+
+  .cafeInfo h3 {
+    margin: 0.5 0;
+  }
+
+  .icons {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.1rem;
+    justify-content: space-around;
+    margin: 5rem 0 3rem;
+    color: white;
+  }
+
+  .star {
+    color: transparent;
+    border: 1px solid white;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, min-content);
+    gap: 1rem 2rem;
+    justify-content: center;
+  }
+
+  .buttons button {
+    /* margin: 0.5rem; */
+  }
+
+  .mapContainer {
+    height: 15rem;
+    width: 100%;
+  }
 }
